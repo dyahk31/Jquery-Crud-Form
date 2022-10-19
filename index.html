@@ -6,7 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JQUERY CRUD FORM Ver.4</title>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        .css-serial{
+    counter-reset: serial-number;
+    }
+
+    .css-serial td:first-child::before{
+        counter-increment: serial-number;
+        content: counter(serial-number);
+    }
+    body {
+        margin-top: 100px;
+    }
+    </style>
 </head>
 <body>
     <!-- <button id="btn">Hai</button> -->
@@ -18,17 +32,26 @@
         <div class="main-container">
             <form id="form" onsubmit="onFormSubmit()" autocomplete="off">
                 <div>
-                    <label>Nama :</label>
-                    <input type="text" name="nama" id="nama" placeholder="masukkan nama ...">
+                    <!-- <label>Nama :</label>
+                    <input type="text" name="nama" id="nama" placeholder="masukkan nama ..."> -->
+                    <div class="input-group flex-nowrap">
+                        <span class="input-group-text" id="addon-wrapping">Nama</span>
+                        <input type="text" class="form-control" aria-describedby="addon-wrapping" name="nama" id="nama" placeholder="masukkan nama ...">
+                      </div>
                 </div>
                 <br>
                 <div>
-                    <label>NIM :</label>
-                    <input type="text" name="nim" id="nim" placeholder="masukkan nim ...">
+                    <!-- <label>NIM :</label>
+                    <input type="text" name="nim" id="nim" placeholder="masukkan nim ..."> -->
+                    <div class="input-group flex-nowrap">
+                        <span class="input-group-text" id="addon-wrapping">NIM</span>
+                        <input type="text" class="form-control" aria-describedby="addon-wrapping" name="nim" id="nim" placeholder="masukkan nim ...">
+                      </div>
                 </div>
                 <br>
-                <div class="form_action--button">
-                    <input type="submit" value="Submit">
+                <div class="action-button">
+                    <!-- <button type="button" class="btn btn-light" type="submit" value="Submit">Submit</button> -->
+                    <input type="submit" value="Submit" class="btn btn-info">
                     <!-- <input type="reset" value="Reset"> -->
                 </div>
                 <!-- <button type="button" id="updateBtn" onclick="addData()">Add</button> -->
@@ -36,16 +59,17 @@
         </div>
         
         <div class="data">
-            <table border="1" id="table">
+            <table border="1" id="table" class="table table-striped table-hover">
             <thead>
                 <tr>
+                    <th>No</th>
                     <th>Nama</th>
                     <th>NIM</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <br>
-            <tbody>
+            <tbody class="css-serial">
                 
             </tbody>
         </table>

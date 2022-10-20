@@ -35,7 +35,7 @@ function insertData(data){
 function resetForm(){
     $("#nama").val('');
     $("#nim").val('');
-    selectedRow = null;
+//     selectedRow = null;
 }
 
 function editData(td){

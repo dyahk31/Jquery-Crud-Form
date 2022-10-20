@@ -40,8 +40,12 @@ function resetForm(){
 
 function editData(td){
     const selectedRow = td.parentElement.parentElement;
-    $("#nama").val($(selectedRow.cells[1]).html());
-    $("#nim").val($(selectedRow.cells[2]).html()); 
+
+    const editNama = prompt(`Ubah ${selectedRow.cells[1].innerHTML} menjadi ...`);
+    const editNim = prompt(`Ubah ${selectedRow.cells[2].innerHTML} menjadi ...`);
+   
+   selectedRow.cells[1].innerHTML = editNama;
+   selectedRow.cells[2].innerHTML = editNim; 
 }
 
 function updateData(formData){
